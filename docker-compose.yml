@@ -25,12 +25,13 @@ services:
       target: build
     container_name: mvn
     environment:
-      - MYSQL_HOST=localhost
+      - MYSQL_HOST=db
       - MYSQL_USER=root
       - MYSQL_PASS=password
       - MYSQL_DATABASE=cargarage
     networks:
       - app
+    working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
 
