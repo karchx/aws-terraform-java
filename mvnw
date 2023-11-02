@@ -9,6 +9,7 @@
 # with the License.  You may obtain a copy of the License at
 #
 #    https://www.apache.org/licenses/LICENSE-2.0
+# https://github.com/ruanbekker/aws-terraform-cicd-java-springboot/blob/main/pom.xml
 #
 # Unless required by applicable law or agreed to in writing,
 # software distributed under the License is distributed on an

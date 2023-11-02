@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class IndexController {
     @GetMapping
     public String sayHello() {
-        return "Hello and Welcome to the CarGarage application.";
+        return "Hello and Welcome to the CarGarage application spring boot.";
     }
 }
