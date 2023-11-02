@@ -10,8 +10,47 @@ services:
       - app
     ports:
       - "8080:8080"
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASS=password
+      - MYSQL_DATABASE=cargarage
     volumes:
       - .:/usr/src/app
+
+  mvn:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: build
+    container_name: mvn
+    environment:
+      - MYSQL_HOST=localhost
+      - MYSQL_USER=root
+      - MYSQL_PASS=password
+      - MYSQL_DATABASE=cargarage
+    networks:
+      - app
+    volumes:
+      - .:/usr/src/app
+
+  db:
+    image: mysql:latest
+    container_name: db
+    environment: 
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USERNAME=app
+      - MYSQL_PASSWORD=app
+      - MYSQL_DATABASE=cargarage
+      - MYSQL_ROOT_HOST=%
+    networks: 
+      - app
+    volumes: 
+      - dbdata:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
     
 networks:
   app: {}
+
+volumes:
+  dbdata: {}
