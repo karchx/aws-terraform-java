@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: app
+    depends_on:
+      - db
     networks:
       - app
     ports:
