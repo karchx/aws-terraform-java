@@ -19,7 +19,20 @@ public class Car {
     private Long id;
 
     @NotBlank
+    private String make;
+
+    @NotBlank
     private String model;
+
+    @Column(nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreatedDate
+    private Date createdAt;
+
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @LastModifiedDate
+    private Date updatedAt;
 
     public Long getId() {
         return id;
@@ -29,11 +42,35 @@ public class Car {
         this.id = id;
     }
 
+    public String getMake() {
+      return make;
+    }
+
+    public void setMake(String make) {
+      this.make = make;
+    }
+
     public String getModel() {
         return model;
     }
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public Date getCreatedAt() {
+      return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+      this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+      return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+      this.updatedAt = updatedAt;
     }
 }
